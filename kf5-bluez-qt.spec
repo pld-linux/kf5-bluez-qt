@@ -8,7 +8,7 @@
 Summary:	Qt wrapper for Bluez 5 DBus API
 Name:		kf5-%{kfname}
 Version:	5.13.0
-Release:	1
+Release:	2
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -76,6 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libKF5BluezQt.so.6
 /lib/udev/rules.d/61-kde-bluetooth-rfkill.rules
 %dir %{_libdir}/qt5/qml/org/kde/bluezqt
+%{_libdir}/qt5/qml/org/kde/bluezqt/qmldir
 %{_libdir}/qt5/qml/org/kde/bluezqt/DevicesModel.qml
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/bluezqt/libbluezqtextensionplugin.so
 
