@@ -2,17 +2,17 @@
 # Conditional build:
 %bcond_with	tests		# build without tests
 #
-%define		kdeframever	5.23
+%define		kdeframever	5.24
 %define		qtver		5.3.2
 %define		kfname		bluez-qt
 Summary:	Qt wrapper for Bluez 5 DBus API
 Name:		kf5-%{kfname}
-Version:	5.23.0
+Version:	5.24.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	a7c7afc02a3842119607c62f2f1191b2
+# Source0-md5:	fcf7ebc8c0e93dfdd80cfb47455f7bc0
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
