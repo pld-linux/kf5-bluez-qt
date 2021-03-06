@@ -2,17 +2,17 @@
 # Conditional build:
 %bcond_with	tests		# build without tests
 #
-%define		kdeframever	5.67
+%define		kdeframever	5.79
 %define		qtver		5.9.0
 %define		kfname		bluez-qt
 Summary:	Qt wrapper for Bluez 5 DBus API
 Name:		kf5-%{kfname}
-Version:	5.67.0
+Version:	5.79.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	4bf38a4919ea975deb71197c57a8edf0
+# Source0-md5:	18579f11a8763c02ab476aa886af91f5
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -73,7 +73,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%{_datadir}/qlogging-categories5/bluez.categories
 %attr(755,root,root) %{_libdir}/libKF5BluezQt.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libKF5BluezQt.so.6
 /lib/udev/rules.d/61-kde-bluetooth-rfkill.rules
@@ -81,6 +80,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/qml/org/kde/bluezqt/qmldir
 %{_libdir}/qt5/qml/org/kde/bluezqt/DevicesModel.qml
 %attr(755,root,root) %{_libdir}/qt5/qml/org/kde/bluezqt/libbluezqtextensionplugin.so
+%{_datadir}/qlogging-categories5/bluezqt.categories
+%{_datadir}/qlogging-categories5/bluezqt.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
