@@ -54,11 +54,13 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 install -d build
 cd build
 %cmake -G Ninja \
+	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
 %ninja_build
 
 %{?with_tests:%ninja_build test}
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
