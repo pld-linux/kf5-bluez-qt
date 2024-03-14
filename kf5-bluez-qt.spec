@@ -2,25 +2,25 @@
 # Conditional build:
 %bcond_with	tests		# build without tests
 #
-%define		kdeframever	5.249.0
+%define		kdeframever	5.114
 %define		qtver		5.15.2
 %define		kfname		bluez-qt
 Summary:	Qt wrapper for Bluez 5 DBus API
 Name:		kf5-%{kfname}
-Version:	5.249.0
-Release:	0.1
+Version:	5.114.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	bf30de1888c71dafaf8a3f2627e4d8ac
+Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	caad99e1346cb52693e2dc3b98e53080
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Gui-devel >= %{qtver}
-BuildRequires:	Qt6Network-devel >= %{qtver}
-BuildRequires:	Qt6Test-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Network-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
 %if %{with tests}
-BuildRequires:	Qt6Gui-devel >= %{qtver}
-BuildRequires:	Qt6Widgets-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= %{qtver}
 %endif
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
@@ -74,20 +74,20 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%attr(755,root,root) %{_libdir}/libKF6BluezQt.so.*.*.*
-%ghost %{_libdir}/libKF6BluezQt.so.6
-%dir %{_libdir}/qt6/qml/org/kde/bluezqt
-%{_libdir}/qt6/qml/org/kde/bluezqt/qmldir
-%{_libdir}/qt6/qml/org/kde/bluezqt/DevicesModel.qml
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/bluezqt/libbluezqtextensionplugin.so
-%{_datadir}/qlogging-categories6/bluezqt.categories
-%{_datadir}/qlogging-categories6/bluezqt.renamecategories
-%{_libdir}/qt6/qml/org/kde/bluezqt/bluezqtextensionplugin.qmltypes
-%{_libdir}/qt6/qml/org/kde/bluezqt/kde-qmlmodule.version
+%attr(755,root,root) %{_libdir}/libKF5BluezQt.so.*.*.*
+%ghost %{_libdir}/libKF5BluezQt.so.6
+/lib/udev/rules.d/61-kde-bluetooth-rfkill.rules
+%dir %{_libdir}/qt5/qml/org/kde/bluezqt
+%{_libdir}/qt5/qml/org/kde/bluezqt/qmldir
+%{_libdir}/qt5/qml/org/kde/bluezqt/DevicesModel.qml
+%attr(755,root,root) %{_libdir}/qt5/qml/org/kde/bluezqt/libbluezqtextensionplugin.so
+%{_datadir}/qlogging-categories5/bluezqt.categories
+%{_datadir}/qlogging-categories5/bluezqt.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/libKF6BluezQt.so
-%{_includedir}/KF6/BluezQt
-%{_libdir}/cmake/KF6BluezQt
-%{_pkgconfigdir}/KF6BluezQt.pc
+%{_libdir}/libKF5BluezQt.so
+%{_includedir}/KF5/BluezQt
+%{_libdir}/cmake/KF5BluezQt
+%{_libdir}/qt5/mkspecs/modules/qt_BluezQt.pri
+%{_pkgconfigdir}/KF5BluezQt.pc
